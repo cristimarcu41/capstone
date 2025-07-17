@@ -1,38 +1,262 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700;800&family=Markazi+Text:wght@400;500;700&display=swap');
+
+/* === Type System & Base Styles === */
+
+body {
+  font-family: 'Karla', Arial, sans-serif;
+  color: #222;
+  background: #fff;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Display Title - Medium 64pt */
+h1 {
+  font-family: 'Markazi Text', serif;
+  font-size: 64px;
+  font-weight: 500;
+  margin-bottom: 0.25em;
+  line-height: 1.1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Sub title - keep close to display */
+h2 {
+  font-family: 'Markazi Text', serif;
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 0.25em;
+  line-height: 1.2;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Regular 40pt (for h3) */
+h3 {
+  font-family: 'Markazi Text', serif;
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 0.25em;
+  line-height: 1.2;
+}
+
+/* Section Title! Uppercase 20pt Extra Bold */
+h4 {
+  font-family: 'Markazi Text', serif;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+/* Card Title 18pt Bold */
+h5 {
+  font-family: 'Karla', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+/* Category/Section 16pt Extra Bold */
+h6 {
+  font-family: 'Karla', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+/* Paragraph text regular 16pt, 1.5 line height */
+p {
+  font-family: 'Karla', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 1em;
+  color: #222;
+  max-width: 65ch;
+}
+
+/* Lead text (use .lead for emphasis) */
+.lead {
+  font-family: 'Karla', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #222;
+  margin-bottom: 0.5em;
+}
+
+/* Highlight text (e.g. price) */
+.highlight {
+  font-family: 'Karla', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #495E57;
+}
+
+/* Section/Category bold (for span or strong) */
+.bold {
+  font-family: 'Karla', Arial, sans-serif;
+  font-weight: 700;
+}
+.extra-bold {
+  font-family: 'Karla', Arial, sans-serif;
+  font-weight: 800;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* Accent colors */
+.accent-green {
+  color: #495E57;
+}
+.accent-yellow {
+  color: #F4CE14;
+}
+.bg-accent-green {
+  background: #495E57;
+}
+.bg-accent-yellow {
+  background: #F4CE14;
+}
+
+/* Rounded corners utility */
+.rounded-16 {
+  border-radius: 16px;
+}
+
+/* Container for the navbar */
+.navbar {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 16px 40px 0 40px; /* Top/Bottom, Left/Right */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Logo and brand */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  height: 32px; /* Adjust as needed */
+  margin-right: 8px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #CFC12D; /* Lemon yellow, adjust as necessary */
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+  display: none !important;
+}
+
+/* Navigation links */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px; /* Space between menu items */
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  padding-bottom: 8px;
+  transition: color 0.2s;
+}
+
+.navbar-menu a:hover {
+  color: #CFC12D; /* Highlight on hover */
+}
+
+/* Hamburger styles */
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 16px;
+  z-index: 1002;
+}
+.hamburger-bar {
+  width: 24px;
+  height: 3px;
+  background: #222;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: all 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive styles */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 16px 20px 0 20px;
   }
-  to {
-    transform: rotate(360deg);
+  .navbar-brand {
+    display: inline;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 24px 32px 24px 32px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    display: none;
+    z-index: 1001;
+  }
+  .navbar-menu.open {
+    display: flex;
+  }
+  .navbar-menu a {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #eee;
+  }
+  .navbar-hamburger {
+    display: flex;
+  }
+  .navbar {
+    position: relative;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-menu {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    gap: 28px;
+  }
+  .navbar-hamburger {
+    display: none;
+  }
+  .navbar-brand {
+    display: inline;
   }
 }
