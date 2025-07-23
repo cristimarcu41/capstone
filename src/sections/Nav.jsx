@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import logo from '../Logo.svg'
+import { Link } from 'react-router-dom'
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,12 +30,12 @@ export default function Nav() {
         className={`navbar-menu${menuOpen ? ' open' : ''}`}
         aria-label="Main navigation"
       >
-        <a href="/" onClick={handleLinkClick}>HOME</a>
-        <a href="/about" onClick={handleLinkClick}>ABOUT</a>
-        <a href="/menu" onClick={handleLinkClick}>MENU</a>
-        <a href="/reservations" onClick={handleLinkClick}>RESERVATIONS</a>
-        <a href="/order" onClick={handleLinkClick}>ORDER ONLINE</a>
-        <a href="/login" onClick={handleLinkClick}>LOGIN</a>
+        <Link to="/" onClick={handleLinkClick}>HOME</Link>
+        <Link to="/about" onClick={handleLinkClick}>ABOUT</Link>
+        <Link to="/menu" onClick={handleLinkClick}>MENU</Link>
+        <Link to="/reservations" onClick={handleLinkClick}>RESERVATIONS</Link>
+        <Link to="/order" onClick={handleLinkClick}>ORDER ONLINE</Link>
+        <Link to="/login" onClick={handleLinkClick}>LOGIN</Link>
       </nav>
     </header>
   );
